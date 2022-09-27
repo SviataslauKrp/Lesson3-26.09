@@ -61,37 +61,27 @@ public class Main {
         System.out.println(hat3 + "2:");
         dz12();
         System.out.println(delimiter);
-        System.err.println("Вопрос о закрытии Console\n" +
-                "Вырвавнивание массивов");
+        System.err.println("Вопрос о закрытии Console");
         
     }
 
     //      12. Напишите программу, которая выводит на консоль таблицу умножения
     private static void dz12() {
 
-        int[][] table = new int[10][10];
-
-        for (int i = 0; i < table.length; i++) {
-            table[0][i] = i;
-            table[i][0] = i;
-        }
-
         for (int i = 1; i < 10; i++) {
             for (int j = 1; j < 10; j++) {
-                table[j][i] = table[0][i] * table[j][0];
+                int result = j * i;
+                int length = (int) (Math.log10(result) + 1);
+                System.out.print(result + " ");
+                if (length == 1) {
+                    System.out.print("  ");
+                } else if (length == 2) {
+                    System.out.print(" ");
+                }
             }
-        }
-        int colorNumber = 29;
-        for (int i = 0; i < table.length; i++) {
-            for (int j = 0; j < table[0].length; j++) {
-               // System.out.print(table[j][i] + " ");
-
-                System.out.printf((char) 27 + "[%dm " + table[j][i], colorNumber);
-            }
-            colorNumber++;
             System.out.println();
-
         }
+
 
     }
 
